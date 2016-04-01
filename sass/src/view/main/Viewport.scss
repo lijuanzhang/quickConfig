@@ -1,0 +1,386 @@
+@include treelist-ui(
+    $ui: 'navigation',
+    //$padding: 0 10px,
+
+    // Black-ish background color
+    $background-color: $panel-navigation-background-color,
+    $toolstrip-background-color: #FFF,
+
+    $tool-float-indicator-color: $primary-color,
+    $tool-float-indicator-width: 5px,
+
+    $tool-indicator-selected-color: $primary-color,
+    $tool-indicator-selected-width: 5px,
+    $tool-selected-background-color: mix(white, $panel-navigation-background-color, 10%),
+    //$tool-selected-color: #fff,
+    //$tool-selected-background-color: $panel-header-background-color,
+
+    // Darker background for expanded subtrees
+    $item-expanded-background-color: #FFF,
+
+    // Taller line height
+    $item-line-height : $panel-navigation-item-line-height,
+
+    //$item-border-top : 1px solid #ddd,
+
+    $row-over-background-color: #F7F7F7,
+    $row-selected-background-color: #F7F7F7,
+
+    // Off-white text
+    $item-icon-color: $primary-color,
+    $item-expander-color: $primary-color,
+    $item-text-color: #555,
+
+    // Brighter when hovered
+    // $item-icon-over-color: #fff,
+    //$item-expander-over-color: #fff,
+    // $item-text-over-color: mix(white, $panel-navigation-item-text-color, 50%),
+    $item-text-font-size: 14px,
+
+    // Various sizes for the pieces:
+    $item-icon-font-size: 14px,
+    $item-icon-width: 44px,
+    $item-expander-font-size: 16px,
+    $item-expander-width: 24px,
+
+    // Style the "row indicator" (the vertical stripe on the left edge):
+    //$row-indicator-width: 5px,
+    $row-indicator-selected-color: $primary-color,
+    $row-indicator-selected-over-color: lighten($primary-color, 7%),
+    $row-indicator-over-color: transparent
+);
+
+//将indicator改为右边，因源码无开放参数，则重写。
+.#{$prefix}treelist-row:hover:before,
+.#{$prefix}treelist-item-selected > .#{$prefix}treelist-row:before {
+    content: " ";
+    position: absolute;
+    display: block;
+    right: 0;
+    top: 0;
+    width: 5px;
+    height: 100%;
+}
+
+.#{$prefix}treelist-row:hover:before {
+    background-color: transparent;
+}
+
+.#{$prefix}treelist-item-selected > .#{$prefix}treelist-row:hover:before {
+    background-color: lighten($primary-color, 7%);
+}
+
+.#{$prefix}treelist-item-selected > .#{$prefix}treelist-row:before {
+    background-color: $primary-color;
+}
+
+
+.sencha-logo {
+  height: 65px;
+  font-size: 16px;
+  color: $lightest-color;
+  margin-left: 17px;
+  .main-logo {
+    line-height: 60px;
+    border-right: 1px solid rgba(255,255,255,0.14);
+    img {
+      margin-left: 22px;
+      margin-right: 22px;
+      top: 8px;
+      position: relative;
+    }
+  }
+}
+.sencha-dash-dash-headerbar {
+  background-color: $primary-color;
+  padding: 0 30px 0 0;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  border: none;
+  .header-right-profile-image {
+    border-radius: 20px;
+  }
+  .x-fa {
+    color: #FFF;
+  }
+}
+.toolbar-combo {
+  top: 0 !important;
+  height: 60px;
+  .x-form-trigger-wrap {
+    border: none;
+    .x-form-text-wrap {
+      display: block;
+      input {
+        background: transparent;
+        color: #fff;
+        text-align: right;
+        padding:5px;
+      }
+    }
+    .x-form-trigger {
+      background: transparent;
+      color: rgba(255,255,255,0.8);
+      line-height: 60px;
+    }
+  }
+}
+.toolbar-combo-boundlist {
+  -moz-box-shadow: 3px 3px 0 rgba(0,0,0,0.05);
+  -webkit-box-shadow: 3px 3px 0 rgba(0,0,0,0.05);
+  box-shadow: 3px 3px 2px rgba(0,0,0,0.05);
+  margin-top: 13px;
+  border-top: 0;
+  -moz-border-radius: 0 0 3px 3px;
+  -webkit-border-radius: 0 0 3px 3px;
+  border-radius: 0 0 3px 3px;
+  border-color: #ccc;
+  padding: 5px;
+  overflow: visible;
+  .x-boundlist-item >a {
+  //  font-size: 12px;
+  //  padding: 0 15px;
+    color: #555;
+    -moz-transition: all 0.2s ease-out 0s;
+    -webkit-transition: all 0.2s ease-out 0s;
+    transition: all 0.2s ease-out 0s;
+  }
+  .x-boundlist-item-over{
+    border-color: #E4E7EA;
+    color: #555;
+    background-color: #E4E7EA;
+  }
+  .x-boundlist-selected{
+    border-color: #E4E7EA;
+    color: #555;
+    background-color: #E4E7EA;
+  }
+}
+.toolbar-combo-boundlist:after {
+  border-bottom: 10px solid #fff;
+  border-left: 10px solid rgba(0,0,0,0);
+  border-right: 10px solid rgba(0,0,0,0);
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: -6px;
+  right: 10px;
+}
+.collapsed{
+    .hot-icon,.new-icon{
+        &:after{
+            display:none;
+        }
+    }
+    .x-tree-elbow-img{
+        display:none;
+    }
+
+    .x-tree-node-text {
+        display:none;
+    }
+}
+.x-grid-cell{
+    position:relative;
+}
+.hot-icon,.new-icon{
+    &.hot-icon:after{
+        content: "HOT";
+        background:#e3495a;
+    }
+    &.new-icon:after{
+        content: "NEW";
+        background:$primary-color;
+    }
+    &:after{
+        height: 18px;
+        width: 34px;
+        display: inline-block;
+        position: absolute;
+        top: 14px;
+        right: -150px;
+        text-align:center;
+        color: $lightest-color;
+        font-weight: bold;
+        font-size: 10px;
+        line-height: 18px;
+    }
+}
+
+.x-treelist-item-tool {
+    height: $panel-navigation-item-line-height;
+    &.hot-icon:after, &.new-icon:after{
+        background: $primary-color;
+        content: '';
+    }
+}
+
+.#{$prefix}treelist-item-tool {
+    width: 100% !important;
+}
+.toolbar-btn-shadow{
+    @include box-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+    .x-btn-over{
+        background-color: $button-toolbar-hover-background-color;
+    }
+}
+
+
+//Add border around html editor field
+.x-html-editor-input{
+    border:1px solid #ccc;
+}
+
+.delete-focus-bg {
+    color: #FFF;
+    &:focus, &:hover{
+        background: none;
+    }
+}
+
+.navigationbar{
+  background: #fff;
+  padding: 0;
+  z-index: 11;
+  .navigationbar-title {
+    border-right: 1px solid #EEE;
+    height: 40px;
+    a {
+      font-size: 14px;
+      line-height: 40px;
+      font-family: 'Microsoft Yahei';
+      margin-left: 15px;
+      color: #ccc;
+    }
+  }
+}
+
+//UI Styles for buttons
+@include extjs-button-small-ui(
+    $ui: 'soft-blue',
+    $background-color: $color-soft-blue,
+    $border-color: darken($color-soft-blue, 5%)
+);
+@include extjs-button-large-ui(
+    $ui: 'soft-blue',
+    $line-height: 34px,
+    $background-color: $color-soft-blue,
+    $border-color: darken($color-soft-blue, 5%)
+);
+@include extjs-button-toolbar-small-ui(
+    $ui: 'soft-blue',
+    $background-color: $color-soft-blue,
+    $border-color: darken($color-soft-blue, 5%)
+);
+
+
+@include extjs-button-small-ui(
+    $ui: 'soft-cyan',
+    $background-color: $color-soft-cyan,
+    $border-color: darken($color-soft-cyan, 5%)
+);
+@include extjs-button-toolbar-small-ui(
+    $ui: 'soft-cyan',
+    $background-color: $color-soft-cyan,
+    $border-color: darken($color-soft-cyan, 5%)
+);
+
+
+@include extjs-button-small-ui(
+    $ui: 'soft-green',
+    $background-color: $color-soft-green,
+    $border-color:darken($color-soft-green, 5%)
+);
+@include extjs-button-large-ui(
+    $ui: 'soft-green',
+    $line-height: 34px,
+    $background-color: $color-soft-green,
+    $border-color:darken($color-soft-green, 5%)
+);
+@include extjs-button-toolbar-small-ui(
+    $ui: 'soft-green',
+    $background-color: $color-soft-green,
+    $border-color:darken($color-soft-green, 5%)
+);
+
+
+
+@include extjs-button-small-ui(
+    $ui: 'soft-red',
+    $background-color: $color-soft-red,
+    $border-color:darken($color-soft-red, 5%)
+);
+@include extjs-button-toolbar-small-ui(
+    $ui: 'soft-red',
+    $background-color: $color-soft-red,
+    $border-color:darken($color-soft-red, 5%)
+);
+
+
+@include extjs-button-small-ui(
+    $ui: 'soft-purple',
+    $background-color: $color-soft-purple,
+    $border-color:darken($color-soft-purple, 5%)
+);
+@include extjs-button-toolbar-small-ui(
+    $ui: 'soft-purple',
+    $background-color: $color-soft-purple,
+    $border-color:darken($color-soft-purple, 5%)
+);
+
+
+@include extjs-button-small-ui(
+    $ui: 'gray',
+    $background-color: $color-gray,
+    $border-color:darken($color-gray, 5%)
+);
+@include extjs-button-large-ui(
+    $ui: 'gray',
+    $line-height: 34px,
+    $background-color: $color-gray,
+    $border-color:darken($color-gray, 5%)
+);
+@include extjs-button-toolbar-small-ui(
+    $ui: 'gray',
+    $background-color: $color-gray,
+    $border-color:darken($color-gray, 5%)
+);
+
+@include extjs-button-small-ui(
+    $ui: 'green',
+    $background-color: $color-green,
+    $border-color:darken($color-green, 5%)
+);
+@include extjs-button-toolbar-small-ui(
+    $ui: 'green',
+    $background-color: $color-green,
+    $border-color:darken($color-green, 5%)
+);
+
+
+@include extjs-button-small-ui(
+    $ui: 'blue',
+    $line-height: 16px,
+    $background-color: $color-blue,
+    $border-color:darken($color-blue, 5%)
+);
+@include extjs-button-toolbar-small-ui(
+    $ui: 'blue',
+    $background-color: $color-blue,
+    $border-color:darken($color-blue, 5%)
+);
+
+
+//自定义PanelUI
+@include extjs-panel-ui(
+  $ui: 'mBasePanel',
+  //$ui-padding: 15px 5px,
+  $ui-header-border-color : $panel-border-color !important,
+  $ui-header-border-width : 1px,
+  $ui-header-font-size: 14px,
+  $ui-header-font-weight : 600,
+  $ui-header-border-style: solid,
+  $ui-header-line-height: 35px,
+  $ui-header-padding : 0 20px
+);
