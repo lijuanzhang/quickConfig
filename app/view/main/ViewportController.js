@@ -19,8 +19,7 @@ Ext.define('QuickConfig.view.main.ViewportController', {
 
   setCurrentView: function(hashTag) {
     hashTag = (hashTag || '').toLowerCase();
-      debugger;
-      console.log(hashTag);
+
     var me = this,
       refs = me.getReferences(),
       mainCard = refs.mainCardPanel,
@@ -47,7 +46,7 @@ Ext.define('QuickConfig.view.main.ViewportController', {
     }
 
     lastView = mainLayout.getActiveItem();
-    debugger
+
     if (!existingItem) {
       newView = Ext.create('QuickConfig.view.' + (view || 'pages.Error404Window'), {
         hideMode: 'offsets',
@@ -161,12 +160,10 @@ Ext.define('QuickConfig.view.main.ViewportController', {
   onMainViewRender: function() {
     if (!window.location.hash) {
       this.redirectTo("dashboard");
-      //this.redirectTo("offerspec.Offerspec");
     }
   },
 
   onRouteChange: function(id) {
-      debugger;
     this.setCurrentView(id);
   },
 

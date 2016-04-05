@@ -118,12 +118,12 @@ Ext.define('QuickConfig.view.offerspec.AddCheck', {
                             }],
                         tpl: Ext.create('Ext.XTemplate',
                             '<tpl for=".">',
-                            '<div class="test">',
+                            '<div class="vbox-item-separator">',
                             '<div style="display:inline-block;width:70%" >',
                             '<div style ="height:50px;font-size:14px; padding:15px 50px">销售品【{attType}】</div>',
                             '</div>',
                             '<div style="display:inline-block;width:30%" >',
-                            '<div style="" class = "{checkResultType}"></div>',
+                            '<div style="" class = "{checkResultType} "></div>',
                             '</div>',
                             '</div>',
                             '</tpl>'
@@ -150,7 +150,7 @@ Ext.define('QuickConfig.view.offerspec.AddCheck', {
                                 '<div style="width:100%">',
                                 '<tpl for=".">',
                                 //'<div style="display:inline-block;width:70%" >',
-                                '<div style ="height:45px;font-size:14px; padding:15px 50px">' ,
+                                '<div style ="height:45px;font-size:14px; padding:15px 50px" class ="vbox-item-separator">' ,
                                 '<span style="width:100px; ">{warmingType}:</span>' +
                                 '<span style="">{warmingInfo}</span>' +
                                 '</div>',

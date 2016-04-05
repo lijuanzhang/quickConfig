@@ -2,60 +2,18 @@
  *销售品配置新增页面
  */
 Ext.define('QuickConfig.view.offerspec.Add', {
-
   extend: 'Ext.container.Container',
   xtype: 'offerspecadd',
+  controller: 'add',
   layout: {
     type: 'vbox',
     align: 'stretch'
   },
-    controller:'add',
   cls: 'offerspec-container',
   defaults: {
     margin: '0 0 20px 0'
   },
-    viewModel:{
-        data:{
-            nextPage: {
-                name: 'nextProcess',
-                itemclass: 'offer-button-nextProcecc',
-                nextPageID:'2',
-                typeID:'1',
-                view:'offerspec.AddCheck',
-                actionId:'offer-addCheck'
-            }
-        }
-    },
   items: [{
-    xtype: 'offerspecwizard',
-    border: false,
-    data: [{
-      state: 'completed',
-      faicon: 'fa-check-circle-o',
-			stepindex: 'firststep',
-      text: '初始化'
-    }, {
-      state: 'actived',
-      faicon: 'fa-dot-circle-o',
-			stepindex: 'nomalstep',
-      text: '选模版'
-    }, {
-      state: 'inactived',
-      faicon: 'fa-circle',
-			stepindex: 'nomalstep',
-      text: '配置'
-    }, {
-      state: 'inactived',
-      faicon: 'fa-circle',
-			stepindex: 'nomalstep',
-      text: '校验'
-    }, {
-      state: 'inactived',
-      faicon: 'fa-circle',
-			stepindex: 'laststep',
-      text: '保存'
-    }]
-  }, {
     xtype: 'panel',
     title: '销售品类型',
     ui: 'mBasePanel',
@@ -100,19 +58,20 @@ Ext.define('QuickConfig.view.offerspec.Add', {
     items: [{
       layout: 'hbox',
       defaults: {
-        height: 150,
-        width: 150,
-        border: true
+        height: 120,
+        width: 120,
+        border: true,
+        cls: 'add-way add-way-hover'
       },
       items: [{
-        html: '<a>',
-        margin: '15 15 15 20'
+        html: '<div class="big-square-image"><div class="fa fa-file-o color-blue"></div><a>默认创建</a></div>',
+        margin: '10 10 10 15'
       }, {
-        html: '<b>',
-        margin: '15 15 15 0'
+        html: '<div class="big-square-image"><div class="fa fa-file-text-o color-green"></div><a>通过模版创建</a></div>',
+        margin: '10 10 10 0'
       }, {
-        html: '<c>',
-        margin: '15 15 15 0'
+        html: '<div class="big-square-image"><div class="fa fa-files-o color-orange"></div><a>从销售品复制</a></div>',
+        margin: '10 10 10 0'
       }]
     }, {
       xtype: 'component',
@@ -132,8 +91,8 @@ Ext.define('QuickConfig.view.offerspec.Add', {
       scale: 'large',
       ui: 'mNextBtn',
       cls: 'm-addbtn-next',
-        name:'nextProcess',
-      text: '下一步'
+      text: '下一步',
+      handler: 'onSelectNext'
     }]
   }]
 });

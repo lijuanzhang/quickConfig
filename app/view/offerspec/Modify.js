@@ -271,13 +271,13 @@ Ext.define('QuickConfig.view.offerspec.Modify', {
                     //mode:'{modifyType}'
                     mode:'MULTI'
                 },
-                store:{type:'offers'},
-                //bind:'{offers}',
-                //
-                //listeners:{
-                //    select:'onSelect',
-                //    deselect:'onDeselect'
-                //},
+                store:{
+                    type:'offers'
+                },
+                    viewConfig: {
+                        emptyText: '请查询销售品',
+                        deferEmptyText: false
+                    },
                 columns: [
                     {
                         header: '名称',

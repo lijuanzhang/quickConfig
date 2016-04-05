@@ -103,25 +103,48 @@ Ext.define('QuickConfig.view.offerspec.ChooseToModify', {
                     reference:'itemsModPanel',
                     height: 400,
                     flex:1,
-                    store:{type:'offers'},
+                    layout: 'column',
+                    defaults:{
+                        columnWidth: 1,
+                        padding: '10 10 0 10',
+                        cls: 'form-columnlayout-item',
+                        xtype:'ux.textfield',
+                        labelWidth: 150
+                    },
+                    //store:{type:'offers'},
                     frame:true,
-                    items:[{
-                        xtype: 'mtextfield',
-                        border: false,
-                        data: [{
-                            name: '乐享189套餐',
-                            type: 'name',
+                    items:[
+                        //{
+                        //xtype: 'mtextfield',
+                        //border: false,
+                        //data: [{
+                        //    name: '乐享189套餐',
+                        //    type: 'name',
+                        //    value:'123'
+                        //}, {
+                        //    name: 'e8-华为Mate8终端促销',
+                        //    type: 'name',
+                        //    value:'2345'
+                        //}, {
+                        //    name: 'e8-华为Mate8终端促销',
+                        //    type: 'name',
+                        //    value:'-1'
+                        //}]
+                        {
+                            fieldLabel: '乐享189套餐',
+                            //type: 'name',
                             value:'123'
                         }, {
-                            name: 'e8-华为Mate8终端促销',
+                            fieldLabel: 'e8-华为Mate8终端促销',
                             type: 'name',
                             value:'2345'
                         }, {
-                                name: 'e8-华为Mate8终端促销',
-                                type: 'name',
-                                value:'-1'
-                            }]
-                    }]
+                            fieldLabel: 'e8-华为Mate8终端促销',
+                            type: 'name',
+                            disabled:true
+                        }
+                //}
+                ]
                 }
             ]
         },

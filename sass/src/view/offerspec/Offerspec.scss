@@ -69,7 +69,7 @@
   }
 }
 .m-addbtn-next {
-  width: 150px;
+  width: 200px;
   height: 40px;
 }
 .wizardContainer {
@@ -253,47 +253,13 @@
   height:45px;
   padding:10px 0 10px 10px;
 }
-.result-right{
-//  content: "\f00c";
-  color: $color-soft-green ;
-  text-align: center
-}
-.result-right:before{
-  content: "\f00c";
-  font: normal normal normal 14px/1 FontAwesome;
-  font-size: 28px;
-}
-.result-false{
-  color: $color-soft-red ;
-  text-align: center;
-}
-.result-false:before{
-  content: "\f00d";
-  font: normal normal normal 14px/1 FontAwesome;
-  font-size: 28px;
-}
-.result-warming{
-  text-align: center;
-  color:$color-soft-orange;
-}
-.result-warming:before{
-  content: "\f12a";
-  font: normal normal normal 14px/1 FontAwesome;
-  font-size: 28px;
-}
-.result-spinner{
-  color:$color-soft-black;
-  text-align: center;
-}
-.result-spinner:before{
-  content: "\f110";
-  font: normal normal normal 14px/1 FontAwesome;
-  font-size: 28px;
-  -webkit-animation: fa-spin 2s infinite linear;
-  animation: fa-spin 2s infinite linear;
-}
+
 .containerBorder-bottom{
-  border: 1px solid #eeeeee;
+//  border: 1px solid #eeeeee;
+  border-bottom: 1px solid  $panel-border-color;
+}
+.vbox-item-separator {
+  border-bottom: 1px dotted #ddd;
 }
 .containerBorder-top{
   border: 1px solid #eeeeee;
@@ -301,6 +267,47 @@
 .containerBorder{
   border: 1px solid #eeeeee;
 }
+
+@mixin result-icon-font{
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: 20px;
+}
+.result-right{
+  //  content: "\f00c";
+  color: $color-soft-green ;
+  text-align: center
+}
+.result-right:before{
+  content: "\f00c";
+  @include result-icon-font;
+}
+.result-false{
+  color: $color-soft-red ;
+  text-align: center
+}
+.result-false:before{
+  content: "\f00d";
+  @include result-icon-font;
+}
+.result-warming{
+  color:$color-soft-orange;
+  text-align: center
+}
+.result-warming:before{
+  content: "\f12a";
+  @include result-icon-font;
+}
+.result-spinner{
+  color:$color-soft-black;
+  text-align: center
+}
+.result-spinner:before{
+  content: "\f110";
+  -webkit-animation: fa-spin 2s infinite linear;
+  animation: fa-spin 2s infinite linear;
+  @include result-icon-font;
+}
+
 //.x-table-layout{
 //  background-color: blue;
 //}
@@ -320,3 +327,45 @@
   @include extjs-button-small-ui( $ui:'mFavourBtn',$background-color: $color-light-gray,$background-color-over: mix(#000, $primary-color, 8%),$font-family: 'Microsoft Yahei' , $font-weight: 300);
 
   @include extjs-text-field-ui($ui:'mTextField');
+  
+  .add-way {
+  .big-square-image {
+    position: absolute;
+    height: 120px;
+    width: 120px;
+    cursor: pointer;
+    text-align: center;
+    .fa {
+      display: block;
+      font-size: 60px;
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+    a {
+      display: block;
+      font-size: 12px;
+    }
+    .color-blue {
+      color: $color-blue;
+    }
+    .color-green {
+      color: $color-green;
+    }
+    .color-orange {
+      color: $color-orange;
+    }
+  }
+}
+.add-way-hover:hover {
+  border-right: 0;
+  border-left: 0;
+  border-bottom: 0;
+  @include box-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+.big-square-image-pressed, .big-square-image:active {
+  -webkit-box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.2) inset;
+  -moz-box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.2) inset;
+  -ms-box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.2) inset;
+  box-shadow: 0 0 8px 1px rgba(0, 0, 0, 0.2) inset;
+}

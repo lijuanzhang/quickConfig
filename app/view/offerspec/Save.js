@@ -89,6 +89,7 @@ Ext.define('QuickConfig.view.offerspec.Save', {
                     xtype:'container',
                     layout:'vbox',
                     width:'100%',
+                    cls:'containerBorder-bottom',
                     items:[
                         {
                             xtype:'container',
@@ -124,10 +125,10 @@ Ext.define('QuickConfig.view.offerspec.Save', {
                 {
                     xtype:'container',
                     width:'100%',
-                    minHeight:70,
+                    minHeight:60,
                     style:{
-                        border: '1px solid #eeeeee',
-                        padding:'30px 50px'},
+                        //border: '1px solid #eeeeee',
+                        padding:'25px 50px'},
                     items:[
                         {
                             xtype:'container',
