@@ -38,9 +38,12 @@ $color-brown: #D17905;
 $color-black: #000;
 $color-black: #000;
 $color-light-gray: #F1F1F1;
+$color-gray-btn-border: #DEDCDC;
 //radio style
 $form-radio-glyph: $fa-var-circle-thin $form-checkbox-size $font-icon-font-family;
 $form-radio-checked-glyph: $fa-var-dot-circle-o $form-checkbox-size $font-icon-font-family;
 //$form-checkbox-glyph-color: $panel-border-color;
 //$form-checkbox-glyph-focus-color: $panel-header-color;
 $form-text-field-body-width:200px;
+$window-header-background-color:$color-soft-blue;
+$button-default-base-color:$color-soft-blue;

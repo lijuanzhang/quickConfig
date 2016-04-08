@@ -9,6 +9,9 @@ Ext.define('QuickConfig.view.main.AddCheckController', {
         component: {
             'button[name=submit]':{
                 click: 'nextProcess'
+            },
+            'button[name=backToMod]':{
+                click: 'preProcess'
             }
         }
     },
@@ -19,6 +22,12 @@ Ext.define('QuickConfig.view.main.AddCheckController', {
     nextProcess:function(el, opts){
         debugger;
         var option = this.getViewModel().getData().nextPage;
+        this.fireEvent('actionchange', option);
+    },
+    preProcess:function(el, opts){
+        debugger;
+        var option = { actionId: 'offer-config',
+            view: 'offerspec.Config'}
         this.fireEvent('actionchange', option);
     }
 })

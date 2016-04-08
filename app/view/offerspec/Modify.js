@@ -22,6 +22,7 @@ Ext.define('QuickConfig.view.offerspec.Modify', {
                 MULTI:'批量修改队列',
                 SINGLE:'单个修改'
             },
+           isMulti:true,
            selectedOffersTitle:'批量修改队列',
            nextPage: {
                name: 'nextProcess',
@@ -33,48 +34,49 @@ Ext.define('QuickConfig.view.offerspec.Modify', {
            }
         }
     },
-    items:[{
-        xtype:'container',
-        layout:'hbox',
-        cls:'headerContainer',
-        items:[{
-            xtype:'label',
-            text:'主页/销售品配置 - 修改',
-            cls:'operater-title',
-            flex:1
-        },
-            {
-                xtype: 'offerspecwizard',
-                border: false,
-                data: [{
-                    state: 'actived',
-                    faicon: 'fa-dot-circle-o',
-                    stepindex: 'firststep',
-                    text: '选择'
-                }, {
-                    state: 'inactived',
-                    faicon: 'fa-circle',
-                    stepindex: 'nomalstep',
-                    text: '选择修改内容'
-                }, {
-                    state: 'inactived',
-                    faicon: 'fa-circle',
-                    stepindex: 'nomalstep',
-                    text: '修改'
-                }, {
-                    state: 'inactived',
-                    faicon: 'fa-circle',
-                    stepindex: 'nomalstep',
-                    text: '校验'
-                }, {
-                    state: 'inactived',
-                    faicon: 'fa-circle',
-                    stepindex: 'laststep',
-                    text: '保存'
-                }]
-            }
-        ]
-    },
+    items:[
+    //    {
+    //    xtype:'container',
+    //    layout:'hbox',
+    //    cls:'headerContainer',
+    //    items:[{
+    //        xtype:'label',
+    //        text:'主页/销售品配置 - 修改',
+    //        cls:'operater-title',
+    //        flex:1
+    //    },
+    //        {
+    //            xtype: 'offerspecwizard',
+    //            border: false,
+    //            data: [{
+    //                state: 'actived',
+    //                faicon: 'fa-dot-circle-o',
+    //                stepindex: 'firststep',
+    //                text: '选择'
+    //            }, {
+    //                state: 'inactived',
+    //                faicon: 'fa-circle',
+    //                stepindex: 'nomalstep',
+    //                text: '选择修改内容'
+    //            }, {
+    //                state: 'inactived',
+    //                faicon: 'fa-circle',
+    //                stepindex: 'nomalstep',
+    //                text: '修改'
+    //            }, {
+    //                state: 'inactived',
+    //                faicon: 'fa-circle',
+    //                stepindex: 'nomalstep',
+    //                text: '校验'
+    //            }, {
+    //                state: 'inactived',
+    //                faicon: 'fa-circle',
+    //                stepindex: 'laststep',
+    //                text: '保存'
+    //            }]
+    //        }
+    //    ]
+    //},
         {
             xtype: 'panel',
             title: '修改模式',
@@ -92,9 +94,9 @@ Ext.define('QuickConfig.view.offerspec.Modify', {
                         'vertical-align': 'middle'
                     }
                 },
-                //listeners:{
-                //    change:'onModifyTypeChange'
-                //},
+                listeners:{
+                    change:'onModifyTypeChange'
+                },
                 items: [{
                     boxLabel: '单个修改',
                     name: 'modifytype',
@@ -104,6 +106,8 @@ Ext.define('QuickConfig.view.offerspec.Modify', {
                     boxLabel: '批量修改',
                     name: 'modifytype',
                     inputValue: 'MULTI',
+                    reference:'multiModType',
+                    //bind:{checked:'{isMulti}'},
                     checked: true
                     //value:'批量修改',
 
@@ -131,65 +135,47 @@ Ext.define('QuickConfig.view.offerspec.Modify', {
                     defaults:{
                         labelWidth:80,
                         //labelCls:'labels'
-                        labelAlign: 'right'
+                        labelAlign: 'right',
                         //width:300
+                        cls:'spec-name-field'
+                        //flex:1
                         //cls:'spec-com-field'
                     },
                     items: [{
                         xtype: 'textfield',
                         fieldLabel: '名称',
-                        style:'spec-name-field',
-                        cls:'spec-name-field',
-                        //labelCls:'labels',
-                        //labelAlign: 'right',
-                        //labelWidth:'40',
-                        name: 'tplName',
-
-                        //billingFieldName: 'billingCity',
-                        //flex: 1,
-                        allowBlank: false
+                        name: 'tplName'
+                        //width:
                     },
-                    //    {
-                    //    xtype: 'component',
-                    //    width:'50'
-                    //},
+                        //{
+                        //    xtype: 'container',
+                        //    flex:0.1
+                        //},
+
                         {
                             xtype: 'textfield',
                             fieldLabel: '编码',
-                            //labelAlign: 'right',
-                         //width:'40%',
-                            name: 'offerspecCode',
-                            //billingFieldName: 'billingCity',
-                            //flex: 1,
-                            allowBlank: false
+                            name: 'offerspecCode'
+                            //flex:10
                     },
-                    //    {
-                    //    xtype: 'component',
-                    //    width:'50'
-                    //},
+                        //{
+                        //    xtype: 'container',
+                        //    flex:0.1
+                        //},
                         {
                             fieldLabel: '类型',
-                            //labelAlign: 'right',
-                            //width: '20%',
                             xtype: 'combobox',
                             name: 'tplType',
                             forceSelection: true,
-                            enforceMaxLength: true,
-                            //listeners: {
-                            //    scope: this,
-                            //    change: this.onMailingAddrFieldChange
-                            //},
-                            //flex:1,
-                            listConfig: {
-                                minWidth: null
-                            },
-                            //store:{type:'templateType'},
-                            valueField: 'name',
-                            displayField: 'name',
-                            typeAhead: true,
-                            queryMode: 'local',
-                            allowBlank: false
-                        }]
+                            //flex:10,
+                            enforceMaxLength: true
+
+                        },
+                        //{
+                        //    xtype: 'container',
+                        //    flex:0.1
+                        //}
+                    ]
                 },
                 {
                     xtype: 'container',
@@ -200,7 +186,8 @@ Ext.define('QuickConfig.view.offerspec.Modify', {
                         labelAlign: 'right'
                     },
                     items: [
-                        {   xtype: 'fieldcontainer',
+                        {
+                            xtype: 'fieldcontainer',
                             fieldLabel: '上市时间',
                             //combineErrors: true,
                             //cls:'hbox-item',
@@ -213,15 +200,26 @@ Ext.define('QuickConfig.view.offerspec.Modify', {
                             items:[
                                 {
                                     xtype: 'datefield',
-                                    name: 'startTime'
+                                    name: 'startTime',
+                                    flex:19
                                 },
-                                {xtype: 'displayfield', value: '~',
-                                    margin:'0 20'},
+                                {
+                                    xtype: 'displayfield',
+                                    value: '~',
+                                    margin:'0 20',
+                                    flex:3
+                                },
                                 {
                                     fieldLabel: '',
                                     xtype: 'datefield',
                                     //flex:4,
-                                    name: 'endTime'
+                                    name: 'endTime',
+                                    flex:19
+                                }
+                                ,
+                                {
+                                    xtype: 'container',
+                                    flex:2
                                 }
                             ]
                         },
@@ -230,12 +228,17 @@ Ext.define('QuickConfig.view.offerspec.Modify', {
                             layout:'hbox',
                             flex:2,
                             items:[
+                                {
+                                    xtype: 'container',
+                                    width:110
+                                },
                             {
                                 xtype: 'button',
                                 text: '查询',
                                 id:'searchButton',
                                 ui: 'mBtn',
                                 scale:'small',
+
                                 cls:'m-mBtn'
                                 //listeners: {
                                 //    scope: this,
@@ -252,7 +255,11 @@ Ext.define('QuickConfig.view.offerspec.Modify', {
                                     ui: 'mBtn',
                                     cls: 'm-mBtn'
                                 }]
-                        }
+                        },
+                        //{
+                        //    xtype:'container',
+                        //    flex:0.1
+                        //}
                      ]
                 },{
                 xtype: 'gridpanel',
@@ -332,6 +339,9 @@ Ext.define('QuickConfig.view.offerspec.Modify', {
             bind:{ title: '{selectedOffersTitle}'},
             //name:'offer-search',
             ui: 'mBasePanel',
+            bind:{
+                hidden:'{!multiModType.checked}'
+            },
             margin: '0 0 10 0',
             border: true,
             layout: {

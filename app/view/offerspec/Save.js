@@ -34,48 +34,49 @@ Ext.define('QuickConfig.view.offerspec.Save', {
 
         }
     },
-    items:[{
-        xtype:'container',
-        layout:'hbox',
-        cls:'headerContainer',
-        items:[{
-            xtype:'label',
-            text:'主页/销售品配置 - 新增',
-            cls:'operater-title',
-            flex:1
-        },
-            {
-                xtype: 'offerspecwizard',
-                border: false,
-                data: [{
-                    state: 'completed',
-                    faicon: 'fa-check-circle-o',
-                    stepindex: 'firststep',
-                    text: '初始化'
-                }, {
-                    state: 'completed',
-                    faicon: 'fa-check-circle-o',
-                    stepindex: 'nomalstep',
-                    text: '选模版'
-                }, {
-                    state: 'completed',
-                    faicon: 'fa-check-circle-o',
-                    stepindex: 'nomalstep',
-                    text: '配置'
-                }, {
-                    state: 'actived',
-                    faicon: 'fa-dot-circle-o',
-                    stepindex: 'nomalstep',
-                    text: '校验'
-                }, {
-                    state: 'inactived',
-                    faicon: 'fa-circle',
-                    stepindex: 'laststep',
-                    text: '保存'
-                }]
-            }
-        ]
-    },
+    items:[
+    //    {
+    //    xtype:'container',
+    //    layout:'hbox',
+    //    cls:'headerContainer',
+    //    items:[{
+    //        xtype:'label',
+    //        text:'主页/销售品配置 - 新增',
+    //        cls:'operater-title',
+    //        flex:1
+    //    },
+    //        {
+    //            xtype: 'offerspecwizard',
+    //            border: false,
+    //            data: [{
+    //                state: 'completed',
+    //                faicon: 'fa-check-circle-o',
+    //                stepindex: 'firststep',
+    //                text: '初始化'
+    //            }, {
+    //                state: 'completed',
+    //                faicon: 'fa-check-circle-o',
+    //                stepindex: 'nomalstep',
+    //                text: '选模版'
+    //            }, {
+    //                state: 'completed',
+    //                faicon: 'fa-check-circle-o',
+    //                stepindex: 'nomalstep',
+    //                text: '配置'
+    //            }, {
+    //                state: 'actived',
+    //                faicon: 'fa-dot-circle-o',
+    //                stepindex: 'nomalstep',
+    //                text: '校验'
+    //            }, {
+    //                state: 'inactived',
+    //                faicon: 'fa-circle',
+    //                stepindex: 'laststep',
+    //                text: '保存'
+    //            }]
+    //        }
+    //    ]
+    //},
         {
             xtype: 'panel',
             //style:'border:1px solid #C5D2D0',
@@ -114,7 +115,7 @@ Ext.define('QuickConfig.view.offerspec.Save', {
                                     items:[{
                                         xtype:'label',
                                         style:{
-                                            'font-size':'20px'
+                                            'font-size':'18px'
                                         },
                                         text:'保存成功'
                                     }]
@@ -128,7 +129,7 @@ Ext.define('QuickConfig.view.offerspec.Save', {
                     minHeight:60,
                     style:{
                         //border: '1px solid #eeeeee',
-                        padding:'25px 50px'},
+                        padding:'20px 50px'},
                     items:[
                         {
                             xtype:'container',
@@ -142,7 +143,7 @@ Ext.define('QuickConfig.view.offerspec.Save', {
                                     xtype: 'label',
                                     text: '销售品保存成功，您可以继续配置，也可以收藏此销售品。收藏后下次将出现在您的收藏列表中。',
                                     style:{
-                                        'font-size':'15px'
+                                        'font-size':'14px'
                                     }
                                 }]
                             },

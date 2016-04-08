@@ -68,7 +68,7 @@ Ext.define('QuickConfig.view.main.CTModifyController', {
     nextProcess:function(el, opts){
         debugger;
         var option = this.getViewModel().getData().nextPage;
-        option.selectedOffers =  this.getViewByRef(this,"itemsModPanel").down('mtextfield').getData();
+        //option.selectedOffers =  this.getViewByRef(this,"itemsModPanel").down('mtextfield').getData();
         this.fireEvent('actionchange', option);
     }
 })

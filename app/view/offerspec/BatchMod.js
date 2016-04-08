@@ -8,10 +8,8 @@ Ext.define('QuickConfig.view.offerspec.BatchMod', {
     extend: 'Ext.container.Container',
     xtype: 'offerspecbatchmod',
     id: 'offerspecchoosetomodify',
-    requires: [
-        'Ext.tree.*',
-        'Ext.data.*'
-    ],
+    requires: ['QuickConfig.view.component.default.OfferBase',
+        'QuickConfig.view.component.default.OfferComposition'],
     controller:'batchmod',
     frame: true,
     layout: {
@@ -37,59 +35,17 @@ Ext.define('QuickConfig.view.offerspec.BatchMod', {
 
         }
     },
-    items:[{
-        xtype:'container',
-        layout:'hbox',
-        cls:'headerContainer',
-        items:[{
-            xtype:'label',
-            text:'主页/销售品配置 - 修改',
-            cls:'operater-title',
-            flex:1
-        },
-            {
-                xtype: 'offerspecwizard',
-                border: false,
-                data: [{
-                    state: 'completed',
-                    faicon: 'fa-check-circle-o',
-                    stepindex: 'firststep',
-                    text: '选择'
-                }, {
-                    state: 'completed',
-                    faicon: 'fa-check-circle-o',
-                    stepindex: 'nomalstep',
-                    text: '选择修改内容'
-                }, {
-                    state: 'actived',
-                    faicon: 'fa-dot-circle-o',
-                    stepindex: 'nomalstep',
-                    text: '修改'
-                }, {
-                    state: 'inactived',
-                    faicon: 'fa-circle',
-                    stepindex: 'nomalstep',
-                    text: '校验'
-                }, {
-                    state: 'inactived',
-                    faicon: 'fa-circle',
-                    stepindex: 'laststep',
-                    text: '保存'
-                }]
-            }
-        ]
-    },{
-        xtype: 'container',
-        border:'true',
-        items :{
-            xtype:'label',
-            bind:{text:'{attType}'}
-        }
-    },
+    items:[
         {
-
-              xtype:'mmodtable'
-},
+            xtype: 'panel',
+            title: '基本信息',
+            ui: 'mBasePanel',
+            margin: '0 0 10 0',
+            border: true,
+            items: [{
+                xtype: 'default.offerbase'
+            }]
+        },
         {
             xtype: 'container',
             layout: {

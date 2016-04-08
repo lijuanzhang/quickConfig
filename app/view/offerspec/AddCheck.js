@@ -34,48 +34,49 @@ Ext.define('QuickConfig.view.offerspec.AddCheck', {
 
         }
     },
-    items:[{
-        xtype:'container',
-        layout:'hbox',
-        cls:'headerContainer',
-        items:[{
-            xtype:'label',
-            text:'主页/销售品配置 - 新增',
-            cls:'operater-title',
-            flex:1
-        },
-            {
-                xtype: 'offerspecwizard',
-                border: false,
-                data: [{
-                    state: 'completed',
-                    faicon: 'fa-check-circle-o',
-                    stepindex: 'firststep',
-                    text: '初始化'
-                }, {
-                    state: 'completed',
-                    faicon: 'fa-check-circle-o',
-                    stepindex: 'nomalstep',
-                    text: '选模版'
-                }, {
-                    state: 'completed',
-                    faicon: 'fa-check-circle-o',
-                    stepindex: 'nomalstep',
-                    text: '配置'
-                }, {
-                    state: 'actived',
-                    faicon: 'fa-dot-circle-o',
-                    stepindex: 'nomalstep',
-                    text: '校验'
-                }, {
-                    state: 'inactived',
-                    faicon: 'fa-circle',
-                    stepindex: 'laststep',
-                    text: '保存'
-                }]
-            }
-        ]
-    },
+    items:[
+    //    {
+    //    xtype:'container',
+    //    layout:'hbox',
+    //    cls:'headerContainer',
+    //    items:[{
+    //        xtype:'label',
+    //        text:'主页/销售品配置 - 新增',
+    //        cls:'operater-title',
+    //        flex:1
+    //    },
+    //        {
+    //            xtype: 'offerspecwizard',
+    //            border: false,
+    //            data: [{
+    //                state: 'completed',
+    //                faicon: 'fa-check-circle-o',
+    //                stepindex: 'firststep',
+    //                text: '初始化'
+    //            }, {
+    //                state: 'completed',
+    //                faicon: 'fa-check-circle-o',
+    //                stepindex: 'nomalstep',
+    //                text: '选模版'
+    //            }, {
+    //                state: 'completed',
+    //                faicon: 'fa-check-circle-o',
+    //                stepindex: 'nomalstep',
+    //                text: '配置'
+    //            }, {
+    //                state: 'actived',
+    //                faicon: 'fa-dot-circle-o',
+    //                stepindex: 'nomalstep',
+    //                text: '校验'
+    //            }, {
+    //                state: 'inactived',
+    //                faicon: 'fa-circle',
+    //                stepindex: 'laststep',
+    //                text: '保存'
+    //            }]
+    //        }
+    //    ]
+    //},
         {
             xtype: 'panel',
             //style:'border:1px solid #C5D2D0',
@@ -109,18 +110,18 @@ Ext.define('QuickConfig.view.offerspec.AddCheck', {
                                 checkResultType: 'result-warming'
                             },
                             {
-                                attType: '配置要求',
-                                checkResultType: 'result-spinner'
-                            },
-                            {
                                 attType: '产品结构',
                                 checkResultType: 'result-right'
+                            },
+                            {
+                                attType: '配置要求',
+                                checkResultType: 'result-spinner'
                             }],
                         tpl: Ext.create('Ext.XTemplate',
                             '<tpl for=".">',
                             '<div class="vbox-item-separator">',
                             '<div style="display:inline-block;width:70%" >',
-                            '<div style ="height:50px;font-size:14px; padding:15px 50px">销售品【{attType}】</div>',
+                            '<div style ="height:50px; padding:15px 50px">销售品【{attType}】</div>',
                             '</div>',
                             '<div style="display:inline-block;width:30%" >',
                             '<div style="" class = "{checkResultType} "></div>',
@@ -150,7 +151,7 @@ Ext.define('QuickConfig.view.offerspec.AddCheck', {
                                 '<div style="width:100%">',
                                 '<tpl for=".">',
                                 //'<div style="display:inline-block;width:70%" >',
-                                '<div style ="height:45px;font-size:14px; padding:15px 50px" class ="vbox-item-separator">' ,
+                                '<div style ="height:45px; padding:15px 50px" class ="vbox-item-separator">' ,
                                 '<span style="width:100px; ">{warmingType}:</span>' +
                                 '<span style="">{warmingInfo}</span>' +
                                 '</div>',

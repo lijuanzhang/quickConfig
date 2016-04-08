@@ -33,40 +33,49 @@ Ext.define('QuickConfig.view.main.SaveController', {
         }
     },
     addMyfavour:function(el, opts){
-        debugger;
+        //debugger;
         console.log('getStore:',Ext.getStore("favouriteOffer"));
         var myFavours  = Ext.getStore("favouriteOffer");
         myFavours.add( {name: '新增',code: 'newTest',
             description: 'for测试测试',
             favouritetime :'9/1 12:00am',
             view: 'Manufacturing'});
-        console.log('getStore:',myFavours);
+        Ext.Msg.alert('收藏','s收藏成功，已添加至收藏列表！')
     },
     onContinue:function(btn, e, eOpts){
-        debugger;
-        var option ={ actionId:'offer-start',view:'offerspec.Start'};
         var actionId='offer-start',view='offerspec.Start';
-        //this.fireEvent('goHome',option);
-        var mainView =  this.getView().findParentByType('mainviewport');
-        var  newView;
-        var mainCard = mainView.down('offerspecmain');
-        var existItem =  mainCard.child('component[actionId = '+actionId+']');
-        if(existItem){
-           newView = existItem;
+        var option ={
+            actionId:actionId,
+            view:view
         }
-        else{
-             newView = Ext.create('QuickConfig.view.' + (view || 'pages.Error404Window'), {
-                hideMode: 'offsets',
-                 actionId:actionId
-            });
-            mainView.add(newView);
-        }
-        var viewModel  = mainView.getViewModel();
-        var  vmData = viewModel.getData();
-        vmData.curView = newView;
-        var mainLayout = mainCard.getLayout();
-        Ext.suspendLayouts();
-        mainLayout.setActiveItem(newView);
-        Ext.resumeLayouts(true);
+        this.fireEvent('actionchange',option);
     }
+
+    //onContinue:function(btn, e, eOpts){
+    //    debugger;
+    //    var option ={ actionId:'offer-start',view:'offerspec.Start'};
+    //    var actionId='offer-start',view='offerspec.Start';
+    //    //this.fireEvent('goHome',option);
+    //    var mainView =  this.getView().findParentByType('mainviewport');
+    //    var  newView;
+    //    var mainCard = mainView.down('offerspecmain');
+    //    var existItem =  mainCard.child('component[actionId = '+actionId+']');
+    //    if(existItem){
+    //       newView = existItem;
+    //    }
+    //    else{
+    //         newView = Ext.create('QuickConfig.view.' + (view || 'pages.Error404Window'), {
+    //            hideMode: 'offsets',
+    //             actionId:actionId
+    //        });
+    //        mainView.add(newView);
+    //    }
+    //    var viewModel  = mainView.getViewModel();
+    //    var  vmData = viewModel.getData();
+    //    vmData.curView = newView;
+    //    var mainLayout = mainCard.getLayout();
+    //    Ext.suspendLayouts();
+    //    mainLayout.setActiveItem(newView);
+    //    Ext.resumeLayouts(true);
+    //}
 })

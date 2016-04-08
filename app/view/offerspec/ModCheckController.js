@@ -7,8 +7,8 @@ Ext.define('QuickConfig.view.main.ModCheckController', {
     alias: 'controller.modcheck',
     listen: {
         component: {
-            'button[name=nextProcess]':{
-                click: 'nextProcess'
+            'button[name=submit]':{
+                click: 'onContinue'
             },
             'button[name=backToMod]':{
                 click: 'backToPreCard'
@@ -40,5 +40,15 @@ Ext.define('QuickConfig.view.main.ModCheckController', {
         debugger;
         var option = this.getViewModel().getData().prePage;
         this.fireEvent('actionchange', option);
+    },
+    onContinue:function(btn, e, eOpts){
+        Ext.Msg.alert('提交','提交成功');
+       //alert('提交成功');
+        var actionId='offer-start',view='offerspec.Start';
+        var option ={
+            actionId:actionId,
+            view:view
+        }
+        this.fireEvent('actionchange',option);
     }
 })

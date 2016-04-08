@@ -8,7 +8,7 @@ Ext.define('QuickConfig.store.offerspec.Offers', {
     pageSize:10,
     mimiId:3,
     filters: [ function(item) {
-        return item.id > 19;
+        return item.id < 5;
     }],
     sorters: [{
         property: 'id',

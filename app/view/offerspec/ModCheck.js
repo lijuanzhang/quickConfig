@@ -41,49 +41,50 @@ Ext.define('QuickConfig.view.offerspec.ModCheck', {
 
         }
     },
-    items:[{
-        xtype:'container',
-        layout:'hbox',
-        cls:'headerContainer',
-        items:[{
-            xtype:'label',
-            text:'主页/销售品配置 - 修改',
-            cls:'operater-title',
-            flex:1
-        },
-            {
-                xtype: 'offerspecwizard',
-                border: false,
-                flex:2,
-                data: [{
-                    state: 'completed',
-                    faicon: 'fa-check-circle-o',
-                    stepindex: 'firststep',
-                    text: '选择'
-                }, {
-                    state: 'completed',
-                    faicon: 'fa-check-circle-o',
-                    stepindex: 'nomalstep',
-                    text: '选择修改内容'
-                }, {
-                    state: 'completed',
-                    faicon: 'fa-check-circle-o',
-                    stepindex: 'nomalstep',
-                    text: '修改'
-                }, {
-                    state: 'actived',
-                    faicon: 'fa-dot-circle-o',
-                    stepindex: 'nomalstep',
-                    text: '校验'
-                }, {
-                    state: 'inactived',
-                    faicon: 'fa-circle',
-                    stepindex: 'laststep',
-                    text: '保存'
-                }]
-            }
-        ]
-    },
+    items:[
+    //    {
+    //    xtype:'container',
+    //    layout:'hbox',
+    //    cls:'headerContainer',
+    //    items:[{
+    //        xtype:'label',
+    //        text:'主页/销售品配置 - 修改',
+    //        cls:'operater-title',
+    //        flex:1
+    //    },
+    //        {
+    //            xtype: 'offerspecwizard',
+    //            border: false,
+    //            flex:2,
+    //            data: [{
+    //                state: 'completed',
+    //                faicon: 'fa-check-circle-o',
+    //                stepindex: 'firststep',
+    //                text: '选择'
+    //            }, {
+    //                state: 'completed',
+    //                faicon: 'fa-check-circle-o',
+    //                stepindex: 'nomalstep',
+    //                text: '选择修改内容'
+    //            }, {
+    //                state: 'completed',
+    //                faicon: 'fa-check-circle-o',
+    //                stepindex: 'nomalstep',
+    //                text: '修改'
+    //            }, {
+    //                state: 'actived',
+    //                faicon: 'fa-dot-circle-o',
+    //                stepindex: 'nomalstep',
+    //                text: '校验'
+    //            }, {
+    //                state: 'inactived',
+    //                faicon: 'fa-circle',
+    //                stepindex: 'laststep',
+    //                text: '保存'
+    //            }]
+    //        }
+    //    ]
+    //},
         {
             xtype: 'panel',
             //style:'border:1px solid #C5D2D0',
@@ -154,8 +155,8 @@ Ext.define('QuickConfig.view.offerspec.ModCheck', {
                             xtype: 'button',
                             scale: 'large',
                             ui: 'mNextBtn',
+                            name:'submit',
                             cls: 'm-addbtn-next',
-                            name:'submitBtn',
                             text: '提交'
                         }
                     ]

@@ -31,48 +31,49 @@ Ext.define('QuickConfig.view.offerspec.ChooseToModify', {
             }
         }
     },
-    items:[{
-        xtype:'container',
-        layout:'hbox',
-        cls:'headerContainer',
-        items:[{
-            xtype:'label',
-            text:'主页/销售品配置 - 修改',
-            cls:'operater-title',
-            flex:1
-        },
-            {
-                xtype: 'offerspecwizard',
-                border: false,
-                data: [{
-                    state: 'completed',
-                    faicon: 'fa-check-circle-o',
-                    stepindex: 'firststep',
-                    text: '选择'
-                }, {
-                    state: 'actived',
-                    faicon: 'fa-dot-circle-o',
-                    stepindex: 'nomalstep',
-                    text: '选择修改内容'
-                }, {
-                    state: 'inactived',
-                    faicon: 'fa-circle',
-                    stepindex: 'nomalstep',
-                    text: '修改'
-                }, {
-                    state: 'inactived',
-                    faicon: 'fa-circle',
-                    stepindex: 'nomalstep',
-                    text: '校验'
-                }, {
-                    state: 'inactived',
-                    faicon: 'fa-circle',
-                    stepindex: 'laststep',
-                    text: '保存'
-                }]
-            }
-        ]
-    },
+    items:[
+    //    {
+    //    xtype:'container',
+    //    layout:'hbox',
+    //    cls:'headerContainer',
+    //    items:[{
+    //        xtype:'label',
+    //        text:'主页/销售品配置 - 修改',
+    //        cls:'operater-title',
+    //        flex:1
+    //    },
+    //        {
+    //            xtype: 'offerspecwizard',
+    //            border: false,
+    //            data: [{
+    //                state: 'completed',
+    //                faicon: 'fa-check-circle-o',
+    //                stepindex: 'firststep',
+    //                text: '选择'
+    //            }, {
+    //                state: 'actived',
+    //                faicon: 'fa-dot-circle-o',
+    //                stepindex: 'nomalstep',
+    //                text: '选择修改内容'
+    //            }, {
+    //                state: 'inactived',
+    //                faicon: 'fa-circle',
+    //                stepindex: 'nomalstep',
+    //                text: '修改'
+    //            }, {
+    //                state: 'inactived',
+    //                faicon: 'fa-circle',
+    //                stepindex: 'nomalstep',
+    //                text: '校验'
+    //            }, {
+    //                state: 'inactived',
+    //                faicon: 'fa-circle',
+    //                stepindex: 'laststep',
+    //                text: '保存'
+    //            }]
+    //        }
+    //    ]
+    //},
         {
             xtype: 'container',
             layout: 'hbox',
@@ -84,14 +85,14 @@ Ext.define('QuickConfig.view.offerspec.ChooseToModify', {
                     items:[
                         {
                             xtype: 'treepanel',
+                            ui: 'mBasePanel',
+                            border: true,
                             reference:'attrsTree',
                             rootVisible: false,
                             store:{type:'OfferInfo'} ,
-
                             title: '销售品信息结构',
                             height: 400,
-
-                            frame:true,
+                            //frame:true,
                             flex:1,
                             lines: false
                         }
@@ -100,6 +101,8 @@ Ext.define('QuickConfig.view.offerspec.ChooseToModify', {
                 {
                     xtype: 'panel',
                     title:'当期各销售品取值',
+                    ui: 'mBasePanel',
+                    border: true,
                     reference:'itemsModPanel',
                     height: 400,
                     flex:1,
@@ -112,38 +115,38 @@ Ext.define('QuickConfig.view.offerspec.ChooseToModify', {
                         labelWidth: 150
                     },
                     //store:{type:'offers'},
-                    frame:true,
+                    //frame:true,
                     items:[
-                        //{
-                        //xtype: 'mtextfield',
-                        //border: false,
-                        //data: [{
-                        //    name: '乐享189套餐',
-                        //    type: 'name',
-                        //    value:'123'
-                        //}, {
-                        //    name: 'e8-华为Mate8终端促销',
-                        //    type: 'name',
-                        //    value:'2345'
-                        //}, {
-                        //    name: 'e8-华为Mate8终端促销',
-                        //    type: 'name',
-                        //    value:'-1'
-                        //}]
                         {
-                            fieldLabel: '乐享189套餐',
-                            //type: 'name',
+                        xtype: 'mtextfield',
+                        border: false,
+                        data: [{
+                            name: '乐享189套餐',
+                            type: 'name',
                             value:'123'
                         }, {
-                            fieldLabel: 'e8-华为Mate8终端促销',
+                            name: '10元包100M流量包',
                             type: 'name',
                             value:'2345'
                         }, {
-                            fieldLabel: 'e8-华为Mate8终端促销',
+                            name: 'e8-华为Mate8终端促销',
                             type: 'name',
-                            disabled:true
-                        }
-                //}
+                            value:'-1'
+                        }]
+                        //{
+                        //    fieldLabel: '乐享189套餐',
+                        //    //type: 'name',
+                        //    value:'123'
+                        //}, {
+                        //    fieldLabel: 'e8-华为Mate8终端促销',
+                        //    type: 'name',
+                        //    value:'2345'
+                        //}, {
+                        //    fieldLabel: 'e8-华为Mate8终端促销',
+                        //    type: 'name',
+                        //    disabled:true
+                        //}
+                }
                 ]
                 }
             ]

@@ -19,13 +19,23 @@ Ext.define('QuickConfig.view.main.ModifyControllers', {
                 deselect: 'onDeselect'
             },
 
-            'button[name=nextProcess]':{
+            'button[name=nextProcess]': {
                 click: 'nextProcess'
             }
         }
     },
     onModifyTypeChange: function (el, newValue, oldValue, options) {
         debugger;
+        //多选变单选时，默认只选中第一个
+        if (newValue.modifytype == 'SINGLE') {
+            debugger;
+            var view = this.getView();
+            var offerSearchGrid = view.lookupReference('offersSearchGrid');
+            var selections = offerSearchGrid.getSelection();
+            if (selections.length > 0) {
+                offerSearchGrid.setSelection(selections[0]);
+            }
+        }
         var offerModifyContain = el.findParentByType('offerspecmodify');
         var offerViewModel = offerModifyContain.getViewModel();
         offerViewModel.set("modifyType", newValue.modifytype);
@@ -53,10 +63,14 @@ Ext.define('QuickConfig.view.main.ModifyControllers', {
         var selectStore = this.getView().lookupReference('selectedOffers').getStore();
         selectStore.add(recored);
     },
-    nextProcess:function(el, opts){
+    nextProcess: function (el, opts) {
         debugger;
         var option = this.getViewModel().getData().nextPage;
-        option.selectedOffers =  this.getView().lookupReference('selectedOffers').getStore();
+        option.selectedOffers = this.getView().lookupReference('selectedOffers').getStore();
         this.fireEvent('actionchange', option);
     }
+    //onModifyTypeChange: function (txtfield, newValue, oldValue, eOpts) {
+    //    debugger;
+    //
+    //}
 })

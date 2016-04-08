@@ -6,13 +6,15 @@ Ext.define('QuickConfig.view.offerspec.MtextField', {
     xtype: 'mtextfield',
     tpl: '<div class="mformfieldContainer">' +
     '<tpl for=".">' +
-    '<div class = "mtxtField"> ' +
-    '<div style = "width:100px;display: inline-block"><label class = "mLabelClass">{name}</label> </div>' +
+    '<div class = "mtxtField form-columnlayout-item" > ' +
+    '<div style = "width:150px;display: inline-block;text-align: right"><label class = "mLabelClass">{name}</label> </div>' +
+       '<div style="border:1px solid #d0d0d0;display: inline-block; margin-left: 20px;" >'+
        ' <tpl if="value==-1">'+
-       '<input type=text name="mValue" disabled class = mInputClass value ="******" />'+
+       ' <input type=text name="mValue" disabled class = mInputClass value ="******" />'+
         '<tpl else>'+
         '<input type=text name="mValue"  class = mInputClass value ="{value}"/>' +
         '</tpl>' +
+        '</div> ' +
     ' </div>' +
     '</tpl>' +
     '</div>',
