@@ -1,5 +1,6 @@
 Ext.define('QuickConfig.view.component.default.OfferBase', {
   extend: 'QuickConfig.view.component.Base',
+  //extend: 'QuickConfig.view.container',
   minHeight: 200,
   xtype: 'default.offerbase',
   layout: 'column',
@@ -12,7 +13,8 @@ Ext.define('QuickConfig.view.component.default.OfferBase', {
     xtype: 'form',
     defaultType: 'ux.textfield',
     columnWidth: 0.5,
-    padding: '10 10 0 10',
+    //padding: '10 10 0 10',
+    padding: '5 5 0 5',
     cls: 'form-columnlayout-item'
   },
   items: [{

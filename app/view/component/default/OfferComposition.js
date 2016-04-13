@@ -3,6 +3,7 @@
  */
 Ext.define('QuickConfig.view.component.default.OfferComposition', {
     extend: 'QuickConfig.view.component.Base',
+    //extend: 'QuickConfig.view.container',
     layout: 'column',
     xtype: 'default.offercomposition',
     cls: 'offerspec-container',

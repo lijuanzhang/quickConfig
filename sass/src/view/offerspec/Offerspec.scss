@@ -336,6 +336,10 @@
   $border-color:$color-gray-btn-border,$font-family: 'Microsoft Yahei' , $font-weight: 300);
 
   @include extjs-text-field-ui($ui:'mTextField');
+  @include extjs-tab-ui($ui:'mTabPanel', $ui-background-color:$color-soft-blue,
+//          $ui-background-color-over:blue,$ui-background-color-focus:blue,
+          $ui-background-color-active:white,$ui-background-color-over:$color-blue,
+          $ui-background-color-disabled:gray);
   
   .add-way {
   .big-square-image {
@@ -385,4 +389,24 @@
   height: 32px;
   boder: 1px solid $neutral-color;
   padding-top:8px;
+}
+//覆盖 tab-over时的样式
+.x-tab-over.x-tab-mTabPanel{
+  background-color: $color-blue;
+}
+.active.x-toolbar-item.x-btn-default-toolbar-small {
+    background-color: #ffffff;
+    font-size:24px;
+    height: 30px;
+  }
+
+
+.wizardprogressbar{
+  height:50px;
+//  background:#DFE0E8;
+  background:#88C584;
+  .x-toolbar-item.x-btn-default-toolbar-small{
+//    background-color: #DFE0E8;
+    height: 40px;
+  }
 }
