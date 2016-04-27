@@ -36,7 +36,7 @@ Ext.define('QuickConfig.view.offerspec.Myoffer', {
         xtype: 'button',
         iconCls: 'x-fa fa-pencil'
       }],
-      width: 30,
+      width: 40,
       dataIndex: 'view'
     }]
   }]

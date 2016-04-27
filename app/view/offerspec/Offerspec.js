@@ -12,6 +12,6 @@ Ext.define('QuickConfig.view.offerspec.Offerspec', {
   controller: 'offerspec',
   items: [{
     xtype: 'offerspecstart',
-    border: false
+    border: true
   }]
 });

@@ -25,7 +25,8 @@ Ext.define('QuickConfig.view.main.Viewport', {
     render: 'onMainViewRender'
   },
 
-  items: [{
+  items: [
+      {
     xtype: 'toolbar',
     cls: 'sencha-dash-dash-headerbar',
     height: 60,
@@ -36,13 +37,15 @@ Ext.define('QuickConfig.view.main.Viewport', {
       cls: 'sencha-logo',
       html: '<div class="main-logo"><img src="resources/images/sencha-icon.png">一点配置</div>',
       width: 230
-    }, {
-      margin: '0 0 0 8',
-      cls: 'delete-focus-bg',
-      iconCls: 'x-fa fa-navicon',
-      id: 'main-navigation-btn',
-      handler: 'onToggleNavigationSize'
-    }, {
+    },
+    //    {
+    //  margin: '0 0 0 8',
+    //  cls: 'delete-focus-bg',
+    //  iconCls: 'x-fa fa-navicon',
+    //  id: 'main-navigation-btn',
+    //  handler: 'onToggleNavigationSize'
+    //},
+        {
       xtype: 'combobox',
       cls: 'toolbar-combo',
       store: {
@@ -114,35 +117,39 @@ Ext.define('QuickConfig.view.main.Viewport', {
     id: 'main-view-detail-wrap',
     reference: 'mainContainerWrap',
     flex: 1,
-    items: [{
-      xtype: 'treelist',
-      reference: 'navigationTreeList',
-      itemId: 'navigationTreeList',
-      ui: 'navigation',
-      store: 'NavigationTree',
-      width: 230,
-      expanderFirst: false,
-      expanderOnly: false,
-      style: {
-        'padding-top': '10px',
-        'border-right': '1px solid #ddd'
-      },
-      defaults: {
-        xtype: 'ntreelistitem'
-      },
-      listeners: {
-        selectionchange: 'onNavigationTreeSelectionChange'
-      }
-    }, {
-      xtype: 'container',
-      flex: 1,
-      reference: 'mainCardPanel',
-      cls: 'sencha-dash-right-main-container',
-      itemId: 'contentPanel',
-      layout: {
-        type: 'card',
-        anchor: '100%'
-      }
-    }]
+    items: [
+    //    {
+    //  xtype: 'treelist',
+    //  reference: 'navigationTreeList',
+    //  itemId: 'navigationTreeList',
+    //  ui: 'navigation',
+    //  store: 'NavigationTree',
+    //  width: 230,
+    //  expanderFirst: false,
+    //  expanderOnly: false,
+    //  style: {
+    //    'padding-top': '10px',
+    //    'border-right': '1px solid #ddd'
+    //  },
+    //  defaults: {
+    //    xtype: 'ntreelistitem'
+    //  },
+    //  listeners: {
+    //    selectionchange: 'onNavigationTreeSelectionChange'
+    //  }
+    //},
+        {
+            xtype: 'container',
+            flex: 1,
+            //maxWidth:900,
+            reference: 'mainCardPanel',
+            cls: 'sencha-dash-right-main-container',
+            itemId: 'contentPanel',
+            layout: {
+                type: 'card',
+                anchor: '100%'
+            }
+        },
+     ]
   }]
 });

@@ -24,19 +24,19 @@ Ext.define('QuickConfig.view.main.MainContainerWrap', {
 
   beforeLayout: function() {
     // We setup some minHeights dynamically to ensure we stretch to fill the height
-    // of the viewport minus the top toolbar
+    // of the viewport minus the top toolnavigationTitlebar
 
     var me = this,
-      height = Ext.Element.getViewportHeight() - 64, // offset by topmost toolbar height
+      height = Ext.Element.getViewportHeight() - 64; // offset by topmost toolbar height
       // We use itemId/getComponent instead of "reference" because the initial
       // layout occurs too early for the reference to be resolved
-      navTree = me.getComponent('navigationTreeList');
+      //navTree = me.getComponent('navigationTreeList');
 
     me.minHeight = height;
 
-    navTree.setStyle({
-      'min-height': height + 'px'
-    });
+    //navTree.setStyle({
+    //  'min-height': height + 'px'
+    //});
 
     me.callParent(arguments);
   }

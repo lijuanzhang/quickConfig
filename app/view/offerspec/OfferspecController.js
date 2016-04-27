@@ -73,4 +73,9 @@ Ext.define('QuickConfig.view.main.OfferspecController', {
         //console.log("onNextProcess:",opts);
 
     }
+    //onRecentlyConfig:function(clickedPanel, record, tr, rowIndex, e, eOpts){
+    //    console.log(" 需求单点击");
+    //    debugger;
+    //    console.log('record:',record)
+    //}
 });

@@ -23,18 +23,19 @@ Ext.define('QuickConfig.view.main.ViewportController', {
       refs = me.getReferences(),
       mainCard = refs.mainCardPanel,
       mainLayout = mainCard.getLayout(),
-      navigationList = refs.navigationTreeList,
+      //navigationList = refs.navigationTreeList,
       navigationBreadcrumb =refs.navigationBreadcrumb,
       viewModel = me.getViewModel(),
       vmData = viewModel.getData(),
-      store = navigationList.getStore(),
+      store = navigationBreadcrumb.getStore(),
       node = store.findNode('routeId', hashTag),
       view = node ? node.get('view') : null,
       lastView = vmData.currentView,
       existingItem = mainCard.child('component[routeId=' + hashTag + ']'),
       newView;
       //进入offerspec.Offerspec 和 dashboard 一样
-      if((hashTag == 'offerspec.Offerspec')||!existingItem)
+      debugger;
+      if((hashTag == 'offerspec.Offerspec'))
       {
           existingItem = mainCard.child('component[routeId=dashboard]')
       }
@@ -71,8 +72,8 @@ Ext.define('QuickConfig.view.main.ViewportController', {
       }
     }
 
-    navigationList.setSelection(node);
-    navigationBreadcrumb.setSelection(node);
+    //navigationList.setSelection(node);
+    //navigationBreadcrumb.setSelection(node);
 
     if (newView.isFocusable(true)) {
       newView.focus();
@@ -87,74 +88,74 @@ Ext.define('QuickConfig.view.main.ViewportController', {
     }
   },
 
-  onToggleNavigationSize: function() {
-    var me = this,
-      refs = me.getReferences(),
-      navigationList = refs.navigationTreeList,
-      navigationTitle = refs.navigationTitle,
-      navigationTextElement = navigationTitle.getEl().selectNode('a',false),
-      wrapContainer = refs.mainContainerWrap,
-      collapsing = !navigationList.getMicro(),
-      new_width = collapsing ? 64 : 230;
-
-    if (Ext.isIE9m || !Ext.os.is.Desktop) {
-      Ext.suspendLayouts();
-
-      refs.senchaLogo.setWidth(new_width);
-      navigationTextElement.setVisible(!collapsing);
-      navigationTitle.setWidth(new_width);
-      navigationList.setWidth(new_width);
-      navigationList.setMicro(collapsing);
-
-
-      Ext.resumeLayouts(); // do not flush the layout here...
-
-      // No animation for IE9 or lower...
-      wrapContainer.layout.animatePolicy = wrapContainer.layout.animate = null;
-      wrapContainer.updateLayout(); // ... since this will flush them
-    } else {
-      if (!collapsing) {
-        // If we are leaving micro mode (expanding), we do that first so that the
-        // text of the items in the navlist will be revealed by the animation.
-        navigationList.setMicro(false);
-        navigationTextElement.setVisible(true);
-      }
-
-      // Start this layout first since it does not require a layout
-      refs.senchaLogo.animate({
-        dynamic: true,
-        to: {
-          width: new_width
-        }
-      });
-      refs.navigationTitle.animate({
-        dynamic: true,
-        to: {
-          width: new_width
-        }
-      });
-      // Directly adjust the width config and then run the main wrap container layout
-      // as the root layout (it and its chidren). This will cause the adjusted size to
-      // be flushed to the element and animate to that new size.
-      navigationList.width = new_width;
-      wrapContainer.updateLayout({
-        isRoot: true
-      });
-
-      // We need to switch to micro mode on the navlist *after* the animation (this
-      // allows the "sweep" to leave the item text in place until it is no longer
-      // visible.
-      if (collapsing) {
-        navigationList.on({
-          afterlayoutanimation: function() {
-            navigationList.setMicro(true);
-            navigationTextElement.setVisible(false);
-          },
-          single: true
-        });
-      }
-    }
-  },
+  //onToggleNavigationSize: function() {
+  //  var me = this,
+  //    refs = me.getReferences(),
+  //    //navigationList = refs.navigationTreeList,
+  //    //navigationTitle = refs.navigationTitle,
+  //    //navigationTextElement = navigationTitle.getEl().selectNode('a',false),
+  //    wrapContainer = refs.mainContainerWrap;
+  //    //collapsing = !navigationList.getMicro(),
+  //    //new_width = collapsing ? 64 : 230;
+  //
+  //  if (Ext.isIE9m || !Ext.os.is.Desktop) {
+  //    Ext.suspendLayouts();
+  //
+  //    //refs.senchaLogo.setWidth(new_width);
+  //    //navigationTextElement.setVisible(!collapsing);
+  //    //navigationTitle.setWidth(new_width);
+  //    //navigationList.setWidth(new_width);
+  //    //navigationList.setMicro(collapsing);
+  //
+  //
+  //    Ext.resumeLayouts(); // do not flush the layout here...
+  //
+  //    // No animation for IE9 or lower...
+  //    wrapContainer.layout.animatePolicy = wrapContainer.layout.animate = null;
+  //    wrapContainer.updateLayout(); // ... since this will flush them
+  //  } else {
+  //    if (!collapsing) {
+  //      // If we are leaving micro mode (expanding), we do that first so that the
+  //      // text of the items in the navlist will be revealed by the animation.
+  //      navigationList.setMicro(false);
+  //      navigationTextElement.setVisible(true);
+  //    }
+  //
+  //    // Start this layout first since it does not require a layout
+  //    //refs.senchaLogo.animate({
+  //    //  dynamic: true,
+  //    //  to: {
+  //    //    width: new_width
+  //    //  }
+  //    //});
+  //    //refs.navigationTitle.animate({
+  //    //  dynamic: true,
+  //    //  to: {
+  //    //    width: new_width
+  //    //  }
+  //    //});
+  //    // Directly adjust the width config and then run the main wrap container layout
+  //    // as the root layout (it and its chidren). This will cause the adjusted size to
+  //    // be flushed to the element and animate to that new size.
+  //    //navigationList.width = new_width;
+  //    wrapContainer.updateLayout({
+  //      isRoot: true
+  //    });
+  //
+  //    // We need to switch to micro mode on the navlist *after* the animation (this
+  //    // allows the "sweep" to leave the item text in place until it is no longer
+  //    // visible.
+  //    if (collapsing) {
+  //      navigationList.on({
+  //        afterlayoutanimation: function() {
+  //          navigationList.setMicro(true);
+  //          navigationTextElement.setVisible(false);
+  //        },
+  //        single: true
+  //      });
+  //    }
+  //  }
+  //},
 
   onMainViewRender: function() {
     if (!window.location.hash) {

@@ -42,6 +42,13 @@ Ext.define('QuickConfig.store.NavigationTree', {
                         leaf: true,
                         //iconCls: 'fa fa-lock',
                         routeId:'authentication.lockscreen'
+                    },
+                    {
+                        text: '需求单配置',
+                        view: 'offerspec.OfferForRequire',
+                        leaf: true,
+                        //iconCls: 'fa fa-file-o',
+                        routeId:'offerForRequire'
                     }
                 ]
             },

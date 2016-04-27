@@ -1,11 +1,16 @@
 Ext.define('QuickConfig.view.component.default.OfferList', {
     extend: 'QuickConfig.view.component.Base',
     xtype: 'offerlist',
+    controller:'offerlist',
     requires: [
         'Ext.grid.Panel',
         'Ext.toolbar.Paging',
         'Ext.grid.column.Date'
     ],
+    config:{
+        name:'',
+        action:''
+    },
     items: [{
         xtype: 'gridpanel',
         //hideHeaders: true,
@@ -34,8 +39,11 @@ Ext.define('QuickConfig.view.component.default.OfferList', {
                 xtype: 'button',
                 iconCls: 'x-fa fa-pencil'
             }],
-            width: 30,
+            width: 40,
             dataIndex: 'view'
-        }]
+        }],
+        listeners:{
+            rowclick:'onRecentlyConfig'
+        }
     }]
 });
