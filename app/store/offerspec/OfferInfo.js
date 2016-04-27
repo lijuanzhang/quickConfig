@@ -4,6 +4,7 @@
 Ext.define('QuickConfig.store.offerspec.OfferInfo', {
     extend: 'Ext.data.TreeStore',
     alias: 'store.OfferInfo',
+    //storeId:'offerInfo',
     root: {
         text: '销售品信息',
         expanded: true,

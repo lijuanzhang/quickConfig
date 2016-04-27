@@ -1,3 +1,12 @@
+@mixin grid-icon-font{
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: 12px;
+}
+
+@mixin result-icon-font{
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: 16px;
+}
 .offerspec-container {
   padding: 20px;
   background-color: #FFF;
@@ -51,7 +60,7 @@
 .offer-action-item-5 {
   padding-left: 8px;
   padding-right: 1px;
-  color: $color-brown;
+  color:  $color-green;
 }
 .m-offer-type-select {
   margin-left: 20px;
@@ -270,10 +279,7 @@
   border: 1px solid #eeeeee;
 }
 
-@mixin result-icon-font{
-  font: normal normal normal 14px/1 FontAwesome;
-  font-size: 16px;
-}
+
 .result-right{
   //  content: "\f00c";
   color: $color-soft-green ;
@@ -409,4 +415,21 @@
 //    background-color: #DFE0E8;
     height: 40px;
   }
+}
+
+.cell-editing-delete-row{
+  color:$color-soft-red;
+  font-size: 12px;
+  padding: 10px;
+  text-align: center
+}
+.cell-editing-delete-row:before{
+  content: "\f056";
+  @include grid-icon-font;
+}
+
+//tab 工具栏
+.x-tab-bar{
+  background-color: blue;
+  border: 1px solid #eeeeee;
 }

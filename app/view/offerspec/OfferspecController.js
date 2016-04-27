@@ -28,12 +28,12 @@ Ext.define('QuickConfig.view.main.OfferspecController', {
     },
   onActionChange: function(option) {
     var actionId = option.actionId,
-      viewName = option.view;
+       viewName = option.view;
     if (actionId) {
-      this.setCurrentAction(viewName, actionId);
+      this.setCurrentAction(viewName, actionId,option);
     }
   },
-  setCurrentAction: function(viewName, actionId) {
+  setCurrentAction: function(viewName, actionId,option) {
       var me = this,
       mainCard = me.getView(),
       mainLayout = mainCard.getLayout(),
@@ -42,9 +42,10 @@ Ext.define('QuickConfig.view.main.OfferspecController', {
       newView;
       debugger;
     if (!existingItem) {
-      newView = Ext.create('QuickConfig.view.' + viewName, {
-        hideMode: 'offsets',
-        actionId: actionId
+        newView = Ext.create('QuickConfig.view.' + viewName, {
+          hideMode: 'offsets',
+          actionId: actionId,
+          otherOption:option
       });
     }
     if (!newView || !newView.isWindow) {
@@ -69,7 +70,7 @@ Ext.define('QuickConfig.view.main.OfferspecController', {
   },
     onNextProcess:function(el, opts){
         debugger;
-        console.log("onNextProcess:",opts);
+        //console.log("onNextProcess:",opts);
 
     }
 });

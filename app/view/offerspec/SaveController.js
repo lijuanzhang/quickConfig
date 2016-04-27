@@ -40,7 +40,7 @@ Ext.define('QuickConfig.view.main.SaveController', {
             description: 'for测试测试',
             favouritetime :'9/1 12:00am',
             view: 'Manufacturing'});
-        Ext.Msg.alert('收藏','s收藏成功，已添加至收藏列表！')
+        Ext.Msg.alert('收藏','收藏成功，已添加至收藏列表！')
     },
     onContinue:function(btn, e, eOpts){
         var actionId='offer-start',view='offerspec.Start';

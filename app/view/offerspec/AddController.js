@@ -2,11 +2,26 @@ Ext.define('QuickConfig.view.offerspec.AddController', {
   extend: 'Ext.app.ViewController',
   alias: 'controller.add',
   onSelectNext: function() {
+      debugger;
+      var panel = this.lookupReference('chooseTempAndOffer');
+     //var offerAndTemplate =  panel.getViewModel().getStore('offerByTemplate').getData();
+     var offerAndTemplate =  panel.getViewModel().getStore('offerByTemplate');
+
     var option = {
-      actionId: 'offer-config',
-      view: 'offerspec.Config'
+      //actionId: 'offer-config',
+      //view: 'offerspec.Config',
+        actionId: 'offer-batchAdd',
+        view: 'offerspec.BatchAdd',
+        offerAndTemplate:offerAndTemplate
     };
-    this.fireEvent('actionchange', option);
+      Ext.namespace("offer.com");
+      Ext.namespace("offer.com");
+      //if(!offerAndTemplate.length){
+      //    Ext.Msg.alert("请先选择新增的销售品模板和销售品数量");
+      //    return;
+      //}
+      offer.com.offer = {operator:'batchAdd',offers:offerAndTemplate};
+      this.fireEvent('actionchange', option);
   },
   afterRender: function() {
     var view = this.getView(),

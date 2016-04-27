@@ -19,7 +19,6 @@ Ext.define('QuickConfig.view.main.ViewportController', {
 
   setCurrentView: function(hashTag) {
     hashTag = (hashTag || '').toLowerCase();
-
     var me = this,
       refs = me.getReferences(),
       mainCard = refs.mainCardPanel,

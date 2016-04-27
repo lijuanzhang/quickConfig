@@ -23,6 +23,7 @@ Ext.define('QuickConfig.view.offerspec.Start', {
       xtype: 'offerspecaction'
     },
     items: [{
+        flex:1,
       data: {
         icon: 'add.png',
         name: '新增',
@@ -32,15 +33,7 @@ Ext.define('QuickConfig.view.offerspec.Start', {
       },
       actionId: 'offer-add'
     }, {
-      data: {
-        icon: 'append.png',
-        name: '完善',
-        itemclass: 'offer-action-item-2',
-        imagename: 'fa-pencil-square-o',
-        view: 'offerspec.Append'
-      },
-      actionId: 'offer-append'
-    }, {
+        flex:1,
       data: {
         icon: 'modify.png',
         name: '修改',
@@ -49,16 +42,8 @@ Ext.define('QuickConfig.view.offerspec.Start', {
         view: 'offerspec.Modify'
       },
       actionId: 'offer-modify'
-    }, {
-      data: {
-        icon: 'restore.png',
-        name: '恢复',
-        itemclass: 'offer-action-item-4',
-        imagename: 'fa-reply-all',
-        view: 'offerspec.Restore'
-      },
-      actionId: 'offer-restore'
-    }, {
+    },  {
+        flex:1,
       data: {
         icon: 'history.png',
         name: '历史',
@@ -67,8 +52,11 @@ Ext.define('QuickConfig.view.offerspec.Start', {
         view: 'offerspec.History'
       },
       actionId: 'offer-history'
-    }]
+    },{xtype:'container',flex:1},{xtype:'container',flex:1}]
   }, {
+      xtype: 'unfinishoffer'
+  },
+      {
     xtype: 'myofferpanel'
   }]
 });
